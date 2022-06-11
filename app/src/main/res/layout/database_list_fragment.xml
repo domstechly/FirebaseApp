@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_shade_1"
+    android:padding="24dp"
+    tools:context=".AllListFragment">
+
+    <EditText
+        android:id="@+id/idUsernameAll"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:height="48dp"
+        android:inputType="none"
+        android:enabled="false"
+        android:padding="10dp"
+        android:text="Nazwa użytkownika"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idAllCollection"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
+        android:height="20dp"
+        android:inputType="none"
+        android:enabled="false"
+        android:minHeight="20dp"
+        android:padding="0dp"
+        android:text="Dostępna zawartość"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idUsernameAll" />
+    <Button
+        android:id="@+id/back_to_userlist"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:padding="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/idUsernameAll"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:text="Wróć"
+        tools:layout_editor_absoluteX="348dp"
+        tools:layout_editor_absoluteY="26dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/FABaddtoall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_add"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/SwipAll"
+        app:layout_constraintEnd_toEndOf="@+id/SwipAll"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idAllCollection"
+        android:id="@+id/SwipAll"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/RecyclerViewAll"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

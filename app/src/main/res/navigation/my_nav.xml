@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/loginfragment">
+
+    <fragment
+        android:id="@+id/loginfragment"
+        android:name="com.example.firebaseapp.LoginFragment"
+        android:label=""
+        tools:layout="@layout/login_fragment">
+
+        <action
+            android:id="@+id/action_loginfragment_to_userfragment"
+            app:destination="@id/userfragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userfragment"
+        android:name="com.example.firebaseapp.UserListFragment"
+        android:label=""
+        tools:layout="@layout/user_list_fragment">
+
+        <action
+            android:id="@+id/action_logout"
+            app:destination="@id/loginfragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_add_to_user"
+            app:destination="@id/allfragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/allfragment"
+        android:name="com.example.firebaseapp.AllListFragment"
+        android:label=""
+        tools:layout="@layout/database_list_fragment">
+
+        <action
+            android:id="@+id/action_back"
+            app:destination="@id/userfragment" />
+        <action
+            android:id="@+id/action_add"
+            app:destination="@id/addfragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addfragment"
+        android:name="com.example.firebaseapp.AddFragment"
+        android:label=""
+        tools:layout="@layout/add_fragment">
+
+        <action
+            android:id="@+id/action_done"
+            app:destination="@id/allfragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
+</navigation>
