@@ -79,13 +79,17 @@ class UserListFragment : Fragment() {
         dao.get().addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val emps: ArrayList<Users> = ArrayList<Users>()
+                val emps2:ArrayList<String?> = ArrayList<String?>()
                 for (data in snapshot.children) {
                     val emp: Users = data.getValue(Users::class.java)!!
+                    val emp2=data.key
                     if(emp.key==args.username){
                         emps.add(emp)
+                        emps2.add(emp2)
                     }
                 }
                 adapter.setItems(emps)
+                adapter.setKeys(emps2)
                 adapter.notifyDataSetChanged()
                 swipe.setRefreshing(false)
             }

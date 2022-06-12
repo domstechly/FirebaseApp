@@ -20,7 +20,7 @@ class UsersDAO {
     }
 
     operator fun get(key: String?): Query {
-            return databaseReference.child(key!!)
+            return databaseReference.ref.child(key!!)
     }
 
     fun get(): Query {
